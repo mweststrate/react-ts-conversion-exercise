@@ -5,7 +5,7 @@ class TodoList extends Component<{
   inputElement: React.RefObject<HTMLInputElement>
   addItem: React.FormEventHandler<HTMLFormElement>
   currentItem: Item
-  handleInput: (e: React.SyntheticEvent<HTMLInputElement>) => void
+  handleInput: (e: React.ChangeEvent<HTMLInputElement>) => void
 }> {
   componentDidUpdate() {
     if (this.props.inputElement.current) this.props.inputElement.current.focus()

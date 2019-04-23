@@ -28,8 +28,8 @@ class App extends Component<AppProps, { items: Item[]; currentItem: Item }> {
     })
   }
 
-  handleInput = (e: React.SyntheticEvent<HTMLInputElement>) => {
-    const itemText = (e.target as HTMLInputElement).value
+  handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const itemText = e.target.value
     const currentItem = { text: itemText, key: '' + Date.now() }
     this.setState({
       currentItem,
