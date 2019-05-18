@@ -1,7 +1,11 @@
 import React, { Component } from 'react'
+import { Item } from './Item'
 
-class TodoItems extends Component {
-  createTasks = item => {
+class TodoItems extends Component<{
+  entries: Item[]
+  deleteItem: (key: string) => void
+}> {
+  createTasks = (item: Item) => {
     return (
       <li key={item.key} onClick={() => this.props.deleteItem(item.key)}>
         {item.text}

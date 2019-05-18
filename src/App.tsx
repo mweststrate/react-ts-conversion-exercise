@@ -1,12 +1,15 @@
 import React, { Component } from 'react'
+import { Item } from './Item'
 import TodoList from './TodoList'
 import TodoItems from './TodoItems'
 
-class App extends Component {
-  inputElement = React.createRef()
+type AppProps = {}
 
-  constructor() {
-    super()
+class App extends Component<AppProps, { items: Item[]; currentItem: Item }> {
+  inputElement = React.createRef<HTMLInputElement>()
+
+  constructor(props: AppProps) {
+    super(props)
     this.state = {
       items: [],
       currentItem: {
@@ -16,7 +19,7 @@ class App extends Component {
     }
   }
 
-  deleteItem = key => {
+  deleteItem = (key: string) => {
     const filteredItems = this.state.items.filter(item => {
       return item.key !== key
     })
@@ -25,14 +28,14 @@ class App extends Component {
     })
   }
 
-  handleInput = e => {
+  handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     const itemText = e.target.value
-    const currentItem = { text: itemText, key: Date.now() }
+    const currentItem = { text: itemText, key: '' + Date.now() }
     this.setState({
       currentItem,
     })
   }
-  addItem = e => {
+  addItem = (e: React.SyntheticEvent<unknown>) => {
     e.preventDefault()
     const newItem = this.state.currentItem
     if (newItem.text !== '') {

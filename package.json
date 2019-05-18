@@ -13,12 +13,18 @@
     "@babel/plugin-proposal-class-properties": "^7.3.4",
     "@babel/preset-env": "^7.3.4",
     "@babel/preset-react": "^7.0.0",
+    "@types/jest": "^24.0.11",
+    "@types/react": "^16.8.8",
+    "@types/react-dom": "^16.8.2",
     "babel-jest": "^24.5.0",
     "jest": "^24.5.0",
     "parcel-bundler": "^1.12.2",
-    "prettier": "^1.16.4"
+    "prettier": "^1.16.4",
+    "ts-jest": "^24.0.0",
+    "typescript": "^3.3.3333"
   },
   "scripts": {
+    "ts": "tsc --watch --pretty --noemit",
     "start": "parcel public/index.html",
     "test": "jest --watch --env=jsdom"
   }
